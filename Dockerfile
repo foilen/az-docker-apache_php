@@ -1,5 +1,8 @@
 FROM ubuntu:20.10
 
+# Update old APT Urls
+RUN sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+
 # Apache and PHP
 RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
     apache2 \
