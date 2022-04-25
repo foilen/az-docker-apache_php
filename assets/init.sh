@@ -4,6 +4,14 @@ set -e
 echo "SSH Start"
 service ssh start
 
+echo "Configure WWW"
+
+if [ -z "$WWW_ROOT" ]; then
+  WWW_ROOT=/home/site/wwwroot
+fi
+echo "WWW_ROOT : $WWW_ROOT"
+sed -i "s|WWW_ROOT|${WWW_ROOT}|g" /etc/apache2/sites-enabled/000-default.conf
+
 # Configure emails
 echo "EMAIL_DEFAULT_FROM_ADDRESS : $EMAIL_DEFAULT_FROM_ADDRESS"
 if [ -n "$EMAIL_DEFAULT_FROM_ADDRESS" ]; then

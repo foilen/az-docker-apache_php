@@ -6,7 +6,7 @@ It is using the instruction from https://docs.microsoft.com/en-us/azure/app-serv
 
 The sendmail replacement is https://github.com/foilen/sendmail-to-msmtp .
 
-It is serving /home/site/wwwroot .
+It is serving /home/site/wwwroot by default, but you can modify it.
 Log files are in /home/LogFiles .
 
 The PHP header to tell the application that it is protected by HTTPS is set when the load-balancer tells it that it is protected.
@@ -21,6 +21,8 @@ docker run -ti --rm az-docker-apache_php:master-SNAPSHOT
 ```
 
 # Available environment config and their defaults
+
+- WWW_ROOT=/home/site/wwwroot
 
 - WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 
