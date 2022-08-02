@@ -66,8 +66,8 @@ if [ -z "$PHP_MAX_MEMORY_LIMIT_MB" ]; then
 fi
 echo "PHP_MAX_MEMORY_LIMIT_MB (must be at least 3 times PHP_MAX_UPLOAD_FILESIZE_MB) : $PHP_MAX_MEMORY_LIMIT_MB"
 
-PHP_CONFIG_FILES="/etc/php/7.4/apache2/conf.d/99-cloud.ini"
-PHP_CONFIG_FILES="$PHP_CONFIG_FILES /etc/php/7.4/cli/conf.d/99-cloud.ini"
+PHP_CONFIG_FILES="/etc/php/8.1/apache2/conf.d/99-cloud.ini"
+PHP_CONFIG_FILES="$PHP_CONFIG_FILES /etc/php/8.1/cli/conf.d/99-cloud.ini"
 for PHP_CONFIG_FILE in $PHP_CONFIG_FILES; do
 echo Save PHP config file $PHP_CONFIG_FILE
 cat > $PHP_CONFIG_FILE << _EOF
