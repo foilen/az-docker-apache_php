@@ -9,7 +9,7 @@ RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update &&
     gnupg2 \
     imagemagick \
     libapache2-mod-fcgid \
-    php8.1=8.1.2-1ubuntu2 \
+    php8.1=8.1.2-1ubuntu2.2 \
     php-apcu php-bcmath php-curl php-gd php-gmp php-imagick php-imap php-intl php-mbstring php-memcache php-memcached php-mysql php-pgsql php-ps php-pspell php-soap php-sqlite3 php-tidy php-xmlrpc php-xml php-zip \
     curl less vim wget rsync \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -27,6 +27,11 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
     gcc g++ make \
     nodejs \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Java
+RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
+    openjdk-11-jre \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Sending emails easily
