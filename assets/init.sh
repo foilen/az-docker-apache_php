@@ -82,6 +82,15 @@ memory_limit = ${PHP_MAX_MEMORY_LIMIT_MB}M
 _EOF
 done
 
+echo "Configure cron"
+CRONNAMES=${!CRON_@}
+for CRONNAME in $CRONNAMES; do
+  eval CRONVALUE=\$$CRONNAME
+  echo "$CRONVALUE" | tee -a /etc/cron.d/custom
+done
+
+echo "Cron Start"
+service cron start
 
 echo "Apache Start"
 service apache2 start

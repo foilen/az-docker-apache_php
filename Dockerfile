@@ -34,6 +34,11 @@ RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update &&
     openjdk-11-jre \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Cron
+RUN export TERM=dumb ; export DEBIAN_FRONTEND=noninteractive ; apt-get update && apt-get install -y \
+    cron \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Sending emails easily
 RUN wget https://deploy.foilen.com/sendmail-to-msmtp/sendmail-to-msmtp_1.1.1_amd64.deb && \
   dpkg -i sendmail-to-msmtp_1.1.1_amd64.deb && \

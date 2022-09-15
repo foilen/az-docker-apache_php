@@ -36,3 +36,8 @@ docker run -ti --rm az-docker-apache_php:master-SNAPSHOT
 - EMAIL_PORT
 - EMAIL_USER
 - EMAIL_PASSWORD
+
+## Cron
+
+You can provide cron lines with environment starting with "CRON_". Eg:
+- 'CRON_1=* * * * * www-data echo yay | tee /tmp/yay_cron.log'
